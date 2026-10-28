@@ -1,0 +1,36 @@
+% CUSTOM COMMANDS
+
+% Clickable monospaced email: \emailaddr{name@example.com}
+\newcommand{\emailaddr}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+% End of document with bibliography.
+% The last-page label comes after the bibliography, so "X of Y" counts it.
+\newcommand{\conclusion}{
+  \clearpage
+  \printbibliography
+  \label{mylastpage}
+}
+
+% End of document with bibliography kept outside the page count.
+% The label comes before the bibliography, and the bibliography pages have no footer.
+\newcommand{\conclusionseparate}{
+  \label{mylastpage}
+  \clearpage
+  \pagestyle{empty}
+  \printbibliography
+}
+
+% End of document without bibliography (documents with no citations).
+% Keeps the "X of Y" footer working.
+\newcommand{\conclusionnobib}{
+  \label{mylastpage}
+}
+
+% Compact title block for documents with no authors and no date:
+% removes the empty author/date lines and pulls the text up under the title.
+% Use in the preamble right after \title{...}
+\newcommand{\compacttitle}{
+  \author{}\date{}
+  \predate{}\postdate{}
+  \posttitle{\par\end{center}\vspace{-2em}}
+}

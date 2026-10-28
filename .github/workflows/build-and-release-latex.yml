@@ -1,0 +1,123 @@
+name: Build and Release LaTeX
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      release_notes:
+        description: 'Custom release notes (optional)'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  build_latex:
+    name: Compile & Verify LaTeX
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Find root LaTeX documents
+        id: latex-roots
+        shell: bash
+        run: |
+          mapfile -d '' roots < <(
+            find . -type f -name '*.tex' -print0 |
+            while IFS= read -r -d '' file; do
+              if grep -qE '^[[:space:]]*%[[:space:]]*![[:space:]]*T[eE]X[[:space:]]+root[[:space:]]*$' "$file"; then
+                printf '%s\0' "$file"
+              fi
+            done
+          )
+
+          if [ "${#roots[@]}" -eq 0 ]; then
+            echo "::error::No root LaTeX documents found."
+            exit 1
+          fi
+
+          echo "Root LaTeX documents:"
+          printf '  %s\n' "${roots[@]}"
+
+          {
+            echo 'files<<LATEX_ROOTS'
+            printf '%s\n' "${roots[@]}"
+            echo 'LATEX_ROOTS'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Compile LaTeX documents
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: ${{ steps.latex-roots.outputs.files }}
+          compiler: latexmk
+          args: >-
+            -pdf
+            -file-line-error
+            -halt-on-error
+            -interaction=nonstopmode
+            -output-directory=out
+
+      # - name: Compile LaTeX documents with TeXLive
+      #   uses: xu-cheng/texlive-action@v3
+      #   with:
+      #     run: |
+      #       latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode -output-directory=out *.tex
+
+      - name: Upload PDF artifacts
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: compiled-documents
+          path: out/*.pdf
+
+  release:
+    name: Create GitHub Release
+    needs: build_latex
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download PDF artifacts
+        uses: actions/download-artifact@v8.0.2
+        with:
+          name: compiled-documents
+          path: out
+
+      - name: Determine release version
+        id: version
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          base_version="v$(date -u '+%Y-%m-%d')"
+          revision=1
+          version="${base_version}.${revision}"
+
+          while gh release view "$version" >/dev/null 2>&1; do
+            revision=$((revision + 1))
+            version="${base_version}.${revision}"
+          done
+
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Release version: $version"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v3.0.3
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          name: ${{ steps.version.outputs.version }}
+          target_commitish: ${{ github.sha }}
+          body: ${{ inputs.release_notes }}
+          generate_release_notes: true
+          files: out/*.pdf

@@ -1,0 +1,11 @@
+% =============================================================
+% Preamble entry point. Each file in config/ handles one concern.
+% Order matters: do not reorder without checking package loading.
+% =============================================================
+\input{config/01_language}          % fonts, babel (English), csquotes
+\input{config/02_layout}            % colors, spacing, headers/footers, lists, title block
+\input{config/03_math}              % math packages
+\input{config/04_figures_tables}    % graphics, captions, TikZ, tables, listings
+\input{config/05_bibliography}      % biblatex/biber
+\input{config/06_hyperlinks}        % url + hyperref (keep late)
+\input{config/07_macros}            % custom commands

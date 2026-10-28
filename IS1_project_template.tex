@@ -1,0 +1,138 @@
+% !TeX root
+
+\documentclass[12pt,a4paper]{article}
+\input{config/setup-en}
+
+\title{The title of your report}
+
+\author{names of students}
+\affil{} % Necessary
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Introduction} \label{sec:intro}
+
+This section is to give a general introduction to the company, including a description of its main \textit{product offerings},
+\textit{markets} and \textit{strategy}.
+
+\section{Value Network Analysis} \label{sec:value}
+
+This section is to show the \textbf{value} network in which the company will work.
+\textit{Agents}, \textit{resources}, and \textit{exchanges of resources} are to be made explicit.
+Note that the project group here has to clarify exactly which products the company is to offer.
+Also note that the value network analysis has to take into account that the company is to work in different markets with different
+actors.
+
+\subsection{VDML Diagram}
+
+Include a Value Delivery Modeling Language (\cite{OMG_VDML}) diagram here.
+
+\subsection{VDML Diagram Explained}
+
+Include a textual description explaining the VDML diagram.
+
+\section{Goal Design} \label{sec:goals}
+
+This section is to show the \textbf{goals} of the company.
+The goals shall be clearly related to the value network analysis in \autoref{sec:intro}.
+In order to identify relevant goals, the project group shall make use of the five forces model \cite{QuickMBA_FiveForces} and generic
+strategies of Michael Porter (look on the web).
+It is recommended that Strategy maps be used to structure the goal model \cite[ch.~2, pp.~29--52]{Kaplan2004_StrategyMaps}.
+
+\subsection{Goal Model}
+
+Include a graphical Business Motivation Model (\cite{BusinessRulesGroup_BMM}) goal model here.
+
+\subsection{Goal Model Explained}
+
+Include a textual description of the BMM model that explains it and shows how it is related to the components of the five forces
+model.
+
+\section{Process Design} \label{sec:processes}
+
+This section is to show the \textbf{processes} of the company.
+The processes shall be clearly related to the value network analysis in \autoref{sec:value} and the goal design in
+\autoref{sec:goals}.
+
+\subsection{Exchange and Conversion Processes in REA}
+
+Include a graphical conceptual schema of the company with exchange and conversion processes (expressed as UML class diagrams)
+using the REA (Resources, Events and Agents) ontology.
+All classes including attributes must be named and the cardinality/multiplicity between the classes must be expressed.
+Stereotypes for all classes shall be specified in accordance with REA.
+Note that only the exchange and conversion processes within the company shall be modelled, but not processes in other companies in
+the value network.
+The conceptual schema shall also make use of other relevant patterns than those for exchange and conversion processes, i.e.
+structural and behavioural patterns as defined in the book by Hruby \cite{Hruby2006_BusinessPatterns}.
+Provide textual descriptions for explaining the graphical schema.
+
+\subsection{Detailed Processes in EPC}
+
+Include a number of detailed process models, expressed as EPC (Event-driven Process Chains) diagrams.
+The processes should include sales and procurement.
+The process models should show actions of individual actors and handle alternatives and exceptions.
+It is recommended to make each process diagram small by using the decomposition mechanisms of EPC diagrams.
+
+\subsection{Relationships between Models}
+
+Include one or several tables that visualize the relationships between the models introduced in this section and the models in the
+previous sections.
+The tables should help to answer the following questions:
+\begin{itemize}
+  \item How does the design of the processes help in fulfilling the goals of the company?
+  \item What are the relationships between the exchange and conversion processes and the EPC models?
+  \item What are the relationships between the EPC models and the VDML diagram?
+\end{itemize}
+
+\section{IT Architecture Design} \label{sec:it_architecture}
+
+This section is to show the IT architecture of the company.
+The IT systems to be used in the company are to be specified, including BPMS, CRM, ERP, DW, BI tools, dashboard, and KM.
+The use of EAI (Enterprise Application Integration) and decision support systems (BI, DW and Dashboards) shall also be discussed.
+The \textbf{IT architecture} shall be documented graphically in a \textbf{diagram} showing the systems and the data flows between
+them, representing systems as nodes and data flows as labeled arrows.
+The relationships between the systems and the business processes they support shall be made explicit.
+
+\section{Business Performance Management} \label{sec:performance}
+
+This section is to introduce the key performance indicators (\textbf{KPI}) for measuring and analysing the business processes of
+the company.
+
+\subsection{Leading and Lagging KPIs}
+
+Include between five and ten leading and lagging indicators.
+Each indicator shall be described in an indicator template consisting of at least the following parts: name of the indicator,
+definition of the indicator, which goal(s) in the company's goal model that the indicator is related to, target values, which
+part of a business process (i.e. which activity) the indicator measures, which IT system that will be the data source for the
+indicator, and which type of IT solution will feed the dashboard system with data from the source system.
+Ensure that the descriptions are consistent with the IT architecture in \autoref{sec:it_architecture}.
+
+\subsection{Evaluation of KPIs}
+
+Include an evaluation of the KPIs from the previous subsection, based on the article by Eckerson
+\cite[ch.~11, pp.~197--216]{Eckerson2010_Performance}.
+
+\section{Enterprise Architecture Evaluation} \label{sec:vulnerabilities}
+
+In other parts of the work you have designed the organization from several perspectives, goals, processes, IT architecture, and so
+on.
+All of these combined converge towards an Enterprise Architecture (EA).
+A main task of EA is to provide an abstracted overview of the organization to support the management in their decision making.
+Therefore, it is necessary to have an \textbf{EA model} at hand to be able to answer upcoming questions.
+In this light, your task is to create an EA model that includes the key parts of the previously created models.
+Security becomes more and more an important topic for organizations due to the changing political situation in the world and the
+bigger exposure of infrastructure to the internet (Industrial Internet of Things (IIoT)).
+Therefore, the management asks you for an assessment of how the goals of the organization are threatened by actual security
+issues.
+To answer this question, analyze reported vulnerabilities within your IT Architecture (e.g., by using the National Vulnerability
+Database (NVD)) and determine their influence on the goals by analyzing the connection within your EA model
+\cite{Ebbers2021_IIoTVulnerabilities}.
+
+\conclusion
+
+\end{document}

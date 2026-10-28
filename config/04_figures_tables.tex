@@ -1,0 +1,33 @@
+% GRAPHICS & CAPTIONS
+% [H] placement specifier for exact float position
+\usepackage{float}
+\usepackage{graphicx}
+% Keeps figures inside the margins (adjustbox)
+\usepackage{adjustbox}
+\graphicspath{{img/}} % Folder with image assets
+% TODO: remove if no section uses it
+\newcounter{figcounter}
+% Captions: small font
+\usepackage{caption}
+\captionsetup{font=small}
+% Side-by-side figures with (a), (b) sub-captions
+\usepackage{subcaption}
+
+% TIKZ & PLOTS
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{3d}
+
+% TABLES & CODE
+% Code listings
+\usepackage{listings}
+% tabularray tables
+\usepackage{tabularray}
+% Tabularray templates: no repeated head/foot across page breaks,
+% caption placed in the foot
+\DefTblrTemplate{firsthead}{default}{}
+\DefTblrTemplate{middlehead}{default}{}
+\DefTblrTemplate{lasthead}{default}{}
+\DefTblrTemplate{firstfoot}{default}{\UseTblrTemplate{caption}{default}}
+\DefTblrTemplate{foot}{default}{\UseTblrTemplate{caption}{default}}

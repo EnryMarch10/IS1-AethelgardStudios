@@ -1,0 +1,45 @@
+% PAGE GEOMETRY & TITLE POSITION
+% 1-inch margins on all sides
+\usepackage[a4paper,margin=1in]{geometry}
+% Title block hooks (\pretitle, \posttitle, \predate, ...); load before authblk
+\usepackage{titling}
+\setlength{\droptitle}{-5em}
+
+% COLORS & TEXT LAYOUT
+% Named SVG colors and table row coloring
+\usepackage[table, svgnames]{xcolor}
+% Line spacing: \onehalfspacing, \doublespacing
+\usepackage{setspace}
+% Paragraphs: vertical space instead of indentation
+\usepackage{parskip}
+% Comment blocks: \begin{comment} ... \end{comment}
+\usepackage{comment}
+
+% LISTS
+\usepackage{enumitem}
+% Tighter itemize spacing
+\setlist[itemize]{topsep=0pt, partopsep=0pt, parsep=0pt}
+
+% HEADERS & FOOTERS
+\usepackage{fancyhdr}
+\setlength{\headheight}{14.49998pt} % Fixes fancyhdr warning with 12pt text
+\fancyhf{}
+% Footer: "X of Y", centered. The label mylastpage is set in config/07_macros.tex
+\fancyfoot[C]{\thepage\ of \pageref{mylastpage}}
+\pagestyle{fancy}
+% Plain pages (title page, chapter starts): no header, no rules
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage\ of \pageref{mylastpage}}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% TITLE BLOCK
+% Multiple authors via \author{...} and \affil{...}
+\usepackage{authblk}
+\renewcommand\Authfont{\small}
+% Separate authors with commas instead of "and"
+\renewcommand\Authsep{, }
+\renewcommand\Authand{, }
+\renewcommand\Authands{, }

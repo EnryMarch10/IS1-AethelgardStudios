@@ -1,0 +1,15 @@
+% FONTS & LANGUAGE
+% Font encoding: T1 for proper accents and hyphenation
+\usepackage[T1]{fontenc}
+% Language: British English (matches A4 paper).
+% For American English, change to main=american.
+\usepackage[main=british]{babel}
+% Fonts: Times-like text and math (newtx)
+\usepackage{newtxtext,newtxmath}
+% Quotes: style follows the babel language; write \enquote{...} in the text.
+% Must be loaded after babel and before biblatex.
+\usepackage[autostyle=true]{csquotes}
+% Typography: better justification and hyphenation
+\usepackage{microtype}
+
+% Note: no inputenc needed, UTF-8 is the default in modern LaTeX.
