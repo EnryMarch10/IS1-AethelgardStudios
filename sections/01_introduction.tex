@@ -2,5 +2,128 @@
 
 \section{Introduction} \label{sec:intro}
 
-This section is to give a general introduction to the company, including a description of its main \textit{product offerings},
-\textit{markets} and \textit{strategy}.
+This section describes the structure of \textbf{Aethelgard Studios} and its business model.
+
+\subsection{Company Overview}
+Aethelgard Studios is an independent start-up game development and publishing company established to build and operate high-scale,
+online multiplayer experiences.
+Operating as a digital studio, the company integrates internal game development capabilities with online operational management,
+dynamic system controls, and a community-driven creator marketplace ecosystem.
+
+\subsection{Main Product Offering}
+The studio's flagship offering is \textit{Aethelgard: The Shifting Realms}, a freemium\footnote{A freemium model provides basic
+features or initial access free of charge, while requiring payment for advanced content, progression tiers, or premium digital
+goods.} Massively Multiplayer Online\footnote{MMO is a type of online video game that allows a large number of players to
+simultaneously interact in the same game server.} Action Role-Playing Game\footnote{RPG comprise a broad video game genre generally
+defined by a detailed story and character advancement (often through increasing characters' levels or other skills). Role-playing
+games almost always feature combat as a defining feature and traditionally used turn-based combat; however, modern role-playing
+games commonly feature real-time action combat or even non-violent forms of conflict resolution} (MMO-ARPG).
+
+The game combines action combat with a deeply interconnected, player-driven economy.
+Players form guilds, navigate procedurally evolving wilderness zones, challenge complex boss encounters, and trade player-crafted
+items across regional market hubs.
+
+\subsubsection{Unique Selling Proposition}
+What distinguishes Aethelgard from traditional MMORPGs is its Player-Driven Ecosystem and Dynamic World-Building.
+Rather than existing in a static virtual world, every economic transaction, territorial claim, and guild milestone directly
+influences the evolving game environment.
+Putting permanent, meaningful influence into the hands of player guilds and traders creates a living, community-shaped world where
+strategic decisions carry genuine long term consequences.
+
+\subsection{Market and Customers}
+Aethelgard Studios targets a core demographic of gamers aged 20--40 located primarily in North America, Western Europe and Central
+Asia.
+
+The total addressable audience is divided into three primary player segments that sustain the social structure and economy of the
+game:
+\begin{itemize}
+  \item \textbf{General Players (Core Audience):} The foundational player base driven by action-RPG combat, character progression,
+  dungeon crawling, and dynamic world exploration. These players drive day-to-day engagement and form the primary market for
+  cosmetic assets and expansion events.
+  \item \textbf{Organizers (Community Leaders):} High-engagement players who manage guilds, coordinate territorial strategies,
+  and oversee regional market hubs. Active and subscribed Organizers who achieve specific mastery thresholds earn Aethelgard-funded
+  stipends for sustaining community infrastructure.
+  \item \textbf{Creators (Developers):} Content creators who build and publish custom cosmetic assets and guildhall cosmetic
+  templates to the integrated Creator Marketplace. Creators earn real-world revenue by monetizing their designs to Organizers and
+  General Players, continually expanding the game's visual variety.
+\end{itemize}
+
+\subsection{Business Strategy}
+Aethelgard Studios employs a Freemium Business Model with an Integrated Creator Marketplace and ISP distribution partnerships.
+
+\subsubsection{Free-to-Play Core}
+%The base local download offers a strictly limited Free-to-Play experience designed in similarity with a product trial.
+%Free accounts provide access only to early starting zones, basic character archetypes, and initial level tiers, allowing players
+%to test combat mechanics, performance, and world design before making a financial commitment.
+
+Access to the base game, map, and core character power progression is completely free, removing initial barriers to entry.
+Player housing and guild halls are available to every player at no cost; only their customization is sold.
+Every purchase is account-wide, so a cosmetic, a housing item or a Patron perk can be used by all characters on the player's
+account, which encourages players to create and keep several characters.
+
+\subsubsection{Revenue Strategy}
+\paragraph{Revenue Streams}
+The studio's monetization model relies on a mix of cosmetic microtransactions, optional subscriptions, marketplace commissions,
+and event access (see \autoref{tab:revenue_streams}).
+
+\begin{longtblr}[
+    caption = {Aethelgard Studios revenue streams.},
+    label = {tab:revenue_streams}
+  ]{
+    colspec={X[1,l] X[3,l]},
+    width=\textwidth,
+    row{odd}={gray!15},
+    row{even}={white},
+    row{1}={bg=gray!90,fg=white},
+    colsep=4pt
+  }
+    \textbf{Stream} & \textbf{Description} \\
+    Cosmetic Shop & Skins, mounts, and visual effects in seasonal drops, plus a seasonal pass whose premium track is cosmetic only. \\
+    Housing \& Guild-Hall Items & Blueprints, furniture, lighting effects, and parlour games, created by the Studio or by player-creators. \\
+    Expansion Collector Packs & An optional cosmetic and housing pack per expansion. Buying the latest pack also grants all earlier packs. \\
+    Patron Subscription & A monthly Aether Shard stipend, the premium seasonal pass track, and convenience perks: expanded bank storage, trade analytics, a remote-banking companion, and free fast-travel. Bank storage freezes if payment stops. \\
+    Patron Tokens & Sold by the Studio for real money. Each grants 30 days of Patron status and can be traded for gold on the auction house. \\
+    Aether Shards & The premium shop currency, bought with real money or earned through the Patron stipend. Cannot be traded or converted into gold. \\
+    Marketplace Fee & The Studio keeps 0.85\% of every creator-to-player sale. \\
+    Event Tickets & Entry to competitive tournaments and limited-time live events. Grants access only, never power. \\
+\end{longtblr}
+
+\paragraph{Fairness Guardrails}
+The only link between real money and gold is the Patron Token. Five safeguards control it:
+\begin{enumerate}
+  \item \textbf{Status only:} A Patron Token unlocks Patron status and nothing else.
+  \item \textbf{Weekly limit:} Each account may buy up to 5 and sell up to 5 tokens per week. The Studio reviews this limit every
+  quarter and adjusts it based on trading data.
+  \item \textbf{Unbuyable top gear:} The strongest crafted gear requires materials that drop from boss encounters and territory
+  control and cannot be bought, so gold alone does not buy top power.
+  \item \textbf{AI fraud detection:} The AI system (\autoref{sec:intro}) monitors token trading for gold farming and account
+  abuse.
+  \item \textbf{Transparency and correction:} The Studio publishes quarterly monetisation transparency reports. If accounts that
+  acquire gold through tokens hold more than twice their share of the active player base in top-tier gear, the Studio lowers the
+  weekly token limit.
+\end{enumerate}
+
+\subsubsection{Distribution Strategy}
+User acquisition is driven primarily through proprietary launcher channels (maximizing direct revenue without platform fees)
+alongside third-party storefronts such as Steam and the Epic Games Store to maximize reach.
+
+\subsubsection{ISP Partnerships}
+To streamline player conversions and reduce payment friction, Aethelgard Studios integrates its payment architecture directly with
+major Internet Service Providers (ISPs).
+Players can settle recurring subscriptions, level expansion purchases, and live event entry fees directly through their monthly
+ISP utility bill.
+Additionally, strategic ISP bundling allows providers to offer exclusive game access passes and cosmetic bundles to their
+high-bandwidth subscribers.
+
+\subsection{AI Integration}
+Artificial intelligence is integrated strictly as an operational support infrastructure rather than a core gameplay component,
+adhering to high standards of operational integrity and player safety.
+
+Its scope encompasses three primary areas:
+\begin{itemize}
+  \item Providing automated, 24/7 multi-tiered customer service resolution to handle player inquiries efficiently.
+  \item Powering real-time anti-cheat detection systems to identify dynamic exploits, memory tampering, and
+  unauthorized third-party software.
+  \item Conducting automated analysis of in-game text and voice player interactions to detect toxicity, harassment, and fraud
+  patterns for proactive moderation.
+\end{itemize}
